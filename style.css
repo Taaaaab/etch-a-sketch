@@ -1,0 +1,14 @@
+.container {
+display: flex;
+flex: 1;
+flex-direction: column;
+}
+
+.squares {
+    display: flex;
+    flex: 1;
+    width: 16px;
+    height: 16px;
+    background-color: grey;
+    
+}
