@@ -6,6 +6,6 @@ display: inline-block;
 .squares {
     display: grid;
     display: inline-block;
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
 }

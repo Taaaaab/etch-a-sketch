@@ -1,26 +1,28 @@
 const container = document.querySelector('#container');
 const btn = document.querySelector('#btn');
-btn.addEventListener('click', () => {
-  prompt("Number of Squares per Side?");
-});
-
-for (let i=0; i <= 32; i++){
-   let newDiv = document.createElement('div');
-   // newDiv.id = 'r'+i;
-   newDiv.setAttribute('id', 'r'+i);
-   newDiv.classList.add('squares');
-   container.appendChild(newDiv);
-
-   newDiv.addEventListener("mouseenter", function( event ) {
+const userSquare = Number(window.prompt("Number of Squares per Side?", 16));
+function reset(userSquare) {
+  let i = userSquare;
+  for (i; i <= 100; i++){
+    let newDiv = document.createElement('div');
+    newDiv.setAttribute('id', 'r'+i);
+    newDiv.classList.add('squares');
+    container.appendChild(newDiv);
+    // Hover effect on mouseenter
+    newDiv.addEventListener("mouseenter", function( event ) {
       // highlight the mouseenter target
       event.target.classList.add('hover');
       newDiv.style.cssText = 'background-color: black'; 
-      // reset the color after a short delay
-      setTimeout(function() {
-        event.target.style.color = "";
-      }, 500);
-    }, false);
+    });
+
+    btn.addEventListener('click', () => {
+      newDiv.classList.remove('hover');
+      newDiv.style.cssText = 'background-color: white';                                   
+    });
+    
+  }
 }
+reset(userSquare);
 document.body.appendChild(container);
 
 
